@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Footprint Fixers - Toolkit</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+*{font-family:Inter,Arial,sans-serif;box-sizing:border-box}body{margin:0;background:#f8fafc;color:#0f172a;line-height:1.55}
+.hero{background:linear-gradient(135deg,#4f46e5,#9333ea);color:#fff;padding:55px 20px;text-align:center}.badge{background:rgba(255,255,255,.2);padding:6px 14px;border-radius:20px;font-size:12px}
+.card{background:#fff;max-width:900px;margin:20px auto;padding:24px;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.06);border:1px solid #e2e8f0}
+.btn{background:#4f46e5;color:#fff;border:none;padding:10px 18px;border-radius:10px;font-weight:700;cursor:pointer;margin:4px}.btn.secondary{background:#e2e8f0;color:#1e293b}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.before,.after{padding:12px;border-radius:8px}.before{border-left:4px solid #ef4444;background:#fef2f2}.after{border-left:4px solid #22c55e;background:#f0fdf4}
+.progress{height:14px;background:#e2e8f0;border-radius:20px;overflow:hidden;margin-top:10px}.bar{height:100%;background:linear-gradient(90deg,#4f46e5,#9333ea);width:0%;transition:width .3s}
+.checkrow{display:block;padding:9px 0;border-bottom:1px solid #eef2f7;cursor:pointer}.checkrow input{margin-right:10px;transform:scale(1.15)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.stat{background:#f1f5f9;border-radius:12px;padding:14px;text-align:center}.stat strong{display:block;font-size:25px;color:#4f46e5}
+.risk{display:inline-block;padding:6px 12px;border-radius:20px;font-weight:800}.low{background:#dcfce7;color:#166534}.medium{background:#fef3c7;color:#92400e}.high{background:#fee2e2;color:#991b1b}
+.note{font-size:13px;color:#64748b}footer{text-align:center;padding:24px;color:#64748b;font-size:13px}
+</style></head><body>
+<header class="hero"><div class="badge">TEAM FOOTPRINT FIXERS - AI CAPSTONE 2026</div>
+<h1>Your Digital Footprint Toolkit</h1><p style="max-width:650px;margin:14px auto;opacity:.95">Explore a fictional profile and learn how to reduce common social media privacy risks. Responsible AI — no real data used.</p>
+<button class="btn" onclick="document.getElementById('audit').scrollIntoView({behavior:'smooth'})">Start Audit →</button></header>
+<main>
+<section id="audit" class="card"><h2>🔍 Privacy Audit Checklist</h2><p>Fictional profile: <b>Aarav Mehta</b> — @aarav_demo</p>
+<p class="note">Tick each item after you have applied the safety fix. The progress, risk score, and recommendations update automatically.</p>
+<label class="checkrow"><input type="checkbox" class="risk-check" value="20">Location ON in posts</label>
+<label class="checkrow"><input type="checkbox" class="risk-check" value="20">DOB + College ID in Bio</label>
+<label class="checkrow"><input type="checkbox" class="risk-check" value="25">WiFi password screenshot</label>
+<label class="checkrow"><input type="checkbox" class="risk-check" value="20">Same password everywhere</label>
+<label class="checkrow"><input type="checkbox" class="risk-check" value="15">Third-party apps access not reviewed</label>
+<div class="progress"><div id="bar" class="bar"></div></div><p id="ptxt"><b>0% Cleaned</b></p>
+<div class="stats"><div class="stat"><strong id="riskScore">100/100</strong><span>Risk score</span></div><div class="stat"><strong id="riskLevel">High</strong><span>Risk level</span></div><div class="stat"><strong id="remaining">5</strong><span>Items to review</span></div></div>
+<p id="riskBadge" style="margin-top:14px"><span class="risk high">High potential risk</span></p>
+<button class="btn" id="fixBtn" type="button">Apply Safety Fixes</button><button class="btn secondary" id="resetBtn" type="button">Reset Audit</button>
+<div style="margin-top:18px;padding:16px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px">
+<h3 style="margin-top:0">🧭 Recommended Actions</h3>
+<p id="reviewStatus" aria-live="polite">5 safety actions remaining.</p>
+<ul id="recommendations"><li>Turn off unnecessary location tags.</li><li>Remove date of birth and college ID from public bio.</li><li>Remove or delete screenshots containing Wi-Fi passwords.</li><li>Use a unique password and enable multi-factor authentication.</li><li>Review connected apps and revoke access you do not need.</li></ul>
+<p class="note">This is a learning checklist. Tick an item only after you have reviewed or applied that safety action.</p>
+</div></section>
+<section class="card"><h2>⚖️ Before vs After</h2><div class="grid">
+<div class="before"><h3>❌ Before: Risky habits</h3><ul><li>Live location visible in posts.</li><li>Birthday and college ID are public.</li><li>A Wi-Fi password screenshot is posted.</li><li>The same password is reused.</li><li>Connected apps are not reviewed.</li></ul></div>
+<div class="after"><h3>✅ After: Safer habits</h3><ul><li>Disable unnecessary location tagging.</li><li>Hide personal identifiers from public bio.</li><li>Never share passwords or screenshots containing secrets.</li><li>Use unique passwords and enable two-factor authentication.</li><li>Review and remove unneeded third-party app access.</li></ul></div></div></section>
+<section class="card"><h2>🛡️ Quick Privacy Tips</h2><ol><li>Use fictional or anonymised data in demonstrations.</li><li>Think about who can view a post before publishing.</li><li>Avoid sharing travel plans or location in real time.</li><li>Review privacy settings, tagged posts and app permissions regularly.</li><li>This educational checklist is not a professional security audit.</li></ol><p class="note">This demo runs in your browser. It does not connect to social media accounts or send checklist data to a server.</p></section>
+</main><footer>Team Footprint Fixers • AI Capstone 2026 • Educational demo using a fictional profile</footer>
+<script>
+(function(){
+ const checks=Array.from(document.querySelectorAll('.risk-check'));
+ const bar=document.getElementById('bar'),ptxt=document.getElementById('ptxt');
+ const riskScore=document.getElementById('riskScore'),riskLevel=document.getElementById('riskLevel');
+ const remaining=document.getElementById('remaining'),riskBadge=document.getElementById('riskBadge');
+ const reviewStatus=document.getElementById('reviewStatus');
+ const recommendations=document.getElementById('recommendations');
+ const tips=[
+  'Turn off unnecessary location tags.',
+  'Remove date of birth and college ID from public bio.',
+  'Remove or delete screenshots containing Wi-Fi passwords.',
+  'Use a unique password and enable multi-factor authentication.',
+  'Review connected apps and revoke access you do not need.'
+ ];
+ function updateAudit(){
+  const done=checks.filter(box=>box.checked).length;
+  const cleaned=Math.round(done/checks.length*100);
+  const risk=100-cleaned;
+  let level='Low',css='low';
+  if(risk>=60){level='High';css='high'}else if(risk>=30){level='Medium';css='medium'}
+  bar.style.width=cleaned+'%';ptxt.innerHTML='<b>'+cleaned+'% Safety Actions Completed</b>';
+  riskScore.textContent=risk+'/100';riskLevel.textContent=level;remaining.textContent=checks.length-done;
+  riskBadge.innerHTML='<span class="risk '+css+'">'+level+' remaining risk</span>';
+  reviewStatus.textContent=(checks.length-done)===0
+    ? 'All five safety actions are marked complete. Review your actual account settings separately.'
+    : (checks.length-done)+' safety action(s) remaining.';
+  recommendations.innerHTML='';
+  checks.forEach((box,i)=>{
+    if(!box.checked){
+      const li=document.createElement('li');
+      li.textContent=tips[i];
+      recommendations.appendChild(li);
+    }
+  });
+  if(recommendations.children.length===0){
+    const li=document.createElement('li');
+    li.textContent='No demo actions remaining. Keep reviewing your privacy settings regularly.';
+    recommendations.appendChild(li);
+  }
+ }
+ checks.forEach(box=>box.addEventListener('change',updateAudit));
+ document.getElementById('fixBtn').addEventListener('click',()=>{
+  checks.forEach(box=>box.checked=true);
+  updateAudit();
+ });
+ document.getElementById('resetBtn').addEventListener('click',()=>{
+  checks.forEach(box=>box.checked=false);
+  updateAudit();
+ });
+ updateAudit();
+})();
+</script></body></html>
